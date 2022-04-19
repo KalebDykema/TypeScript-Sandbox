@@ -65,8 +65,11 @@ Watch and compile all files on save with ``tsc -w``, as long as you have a src f
       // Strings and numbers using the pipe operator
       const myStrings: (string|number)[] = [];
 
-      // Objects with a specified strucutre
+      // Objects with a specified structure
       const people: {name: string, age: number, isFamous: boolean}[] = [];
+      
+      // Can also use classes. Depend like Person is defined somewhere.
+      const people: Person[] = [];
       ```
 - ``void``
    - **NOTE**: Only used to specify the last of a return on a function.
