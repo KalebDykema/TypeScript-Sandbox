@@ -111,3 +111,13 @@ You can specify all the argument types and return type of a function before actu
       return numOne - numtwo;
    };
    ```
+
+## Type Casting
+Sometimes you want to take an implicity typed element and type it more specifically. This is common with DOM manipulation. For example:
+   ```
+   // Since we're selecting an <a> element explicity, its type is set to HTLMAnchorElement without any work from us.
+   const anchor = document.querySelector("a");
+
+   // Since we're selecting an <a> element with a clag, its type is set to Element. We need to cast its type as the more specific HTMLAnchorElement.
+   const otherAnchor = document.querySelector(".my-anchor") as HTMLAnchorElement;
+   ```
