@@ -56,7 +56,16 @@ Watch and compile all files on save with ``tsc -w``, as long as you have a src f
       ...
       ```
 
-## Setting Types
+## Aliases
+You can save a type or group of types on an alias for later reference. For example:
+   ```
+   type StringOrNum = string | num;
+
+   const myVar: StringOrNum = 5;
+   myVar = "test";
+   ```
+
+## Setting A Type
 - Variables
    - This is rather simple.
       ```
