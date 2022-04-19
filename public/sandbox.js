@@ -1,3 +1,4 @@
+"use strict";
 var person = "Kaleb";
 var age = 23;
 var hasRedHair = true;
