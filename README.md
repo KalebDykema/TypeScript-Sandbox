@@ -9,6 +9,36 @@ Watch a file and compile on save with ``tsc sandbox.ts -w``.
 
 Watch and compile all files on save with ``tsc -w``, as long as you have a src folder specified in ``tsconfig.json``.
 
+## Setting A Type
+**NOTE**: You can implicity set types by setting a variable equal to a value of the type you wish it to be. For example, ``const myString = "test";`` is a string. This also applies to function return types.
+- Variables
+   - This is rather simple.
+      ```
+      const myString: string = "Hello world!";
+      ```
+- Functions
+   - You can specify the types of the arguments and the returned value.
+      ```
+      const circ = (diameter: number): number => {
+         return diameter * Number.PI;
+      };
+
+      // Can also specifiy an optional argument with a questions mark
+      const sayHello = (name?: string): void => {
+         if (name) {
+            console.log(`Hello ${name}!`);
+         }
+         else {
+            console.log("No one's home.");
+         }
+      };
+
+      // If an argument has a default value, it's automatically marked as optional. It can be implicity or explicity typed, depending on your preference or use-case.
+      const sayGoodbye = (name: string = "Kaleb") => {
+         console.log(`Hello ${name}!`);
+      };
+      ```
+
 ## Valid Types
 - ``string``
 - ``number``
@@ -73,32 +103,3 @@ You can specify all the argument types and return type of a function before actu
       return numOne - numtwo;
    };
    ```
-
-## Setting A Type
-- Variables
-   - This is rather simple.
-      ```
-      const myString: string = "Hello world!";
-      ```
-- Functions
-   - You can specify the types of the arguments and the returned value.
-      ```
-      const circ = (diameter: number): number => {
-         return diameter * Number.PI;
-      };
-
-      // Can also specifiy an optional argument with a questions mark
-      const sayHello = (name?: string): void => {
-         if (name) {
-            console.log(`Hello ${name}!`);
-         }
-         else {
-            console.log("No one's home.");
-         }
-      };
-
-      // If an argument has a default value, it's automatically marked as optional. It can be implicity or explicity typed, depending on your preference or use-case.
-      const sayGoodbye = (name: string = "Kaleb") => {
-         console.log(`Hello ${name}!`);
-      };
-      ```
