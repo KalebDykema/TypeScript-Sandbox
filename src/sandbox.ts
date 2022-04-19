@@ -1,14 +1,21 @@
 // Classes
 class Invoice {
-   client: string;
-   detail: string;
-   amount: number;
+   // private client: string;
+   // readonly detail: string;
+   // public amount: number;
 
-   constructor (c: string, d: string, a: number) {
-      this.client = c;
-      this.detail = d;
-      this.amount = a;
-   };
+   // constructor (c: string, d: string, a: number) {
+   //    this.client = c;
+   //    this.detail = d;
+   //    this.amount = a;
+   // };
+
+   // Typescript makes doing what we did above way easier.
+   constructor (
+      private client: string,
+      readonly detail: string,
+      public amount: number
+   ){}
 
    format() {
       return `${this.client} owes ${this.amount} for ${this.detail}`;
@@ -16,7 +23,11 @@ class Invoice {
 };
 
 const invOne = new Invoice("Kaleb", "pizza", 10);
+const invTwo = new Invoice("Crowe", "chicken", 5);
+const invoices: Invoice[] = [invOne, invTwo];
+
 console.log(invOne.format());
+console.log(invTwo.format());
 
 // Form Selector
 const form = document.querySelector(".new-item-form") as HTMLFormElement;

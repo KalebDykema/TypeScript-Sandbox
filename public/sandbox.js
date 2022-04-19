@@ -1,12 +1,20 @@
 "use strict";
 // Classes
 var Invoice = /** @class */ (function () {
-    function Invoice(c, d, a) {
-        this.client = c;
-        this.detail = d;
-        this.amount = a;
+    // private client: string;
+    // readonly detail: string;
+    // public amount: number;
+    // constructor (c: string, d: string, a: number) {
+    //    this.client = c;
+    //    this.detail = d;
+    //    this.amount = a;
+    // };
+    // Typescript makes doing what we did above way easier.
+    function Invoice(client, detail, amount) {
+        this.client = client;
+        this.detail = detail;
+        this.amount = amount;
     }
-    ;
     Invoice.prototype.format = function () {
         return this.client + " owes " + this.amount + " for " + this.detail;
     };
@@ -14,7 +22,10 @@ var Invoice = /** @class */ (function () {
 }());
 ;
 var invOne = new Invoice("Kaleb", "pizza", 10);
+var invTwo = new Invoice("Crowe", "chicken", 5);
+var invoices = [invOne, invTwo];
 console.log(invOne.format());
+console.log(invTwo.format());
 // Form Selector
 var form = document.querySelector(".new-item-form");
 // Input Selectors
