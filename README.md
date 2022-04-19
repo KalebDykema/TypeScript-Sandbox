@@ -124,3 +124,38 @@ Sometimes you want to take an implicity typed element and type it more specifica
    // Since we're selecting an <a> element with a clag, its type is set to Element. We need to cast its type as the more specific HTMLAnchorElement.
    const otherAnchor = document.querySelector(".my-anchor") as HTMLAnchorElement;
    ```
+
+## Classes
+Classes in TypeScript can be handled much more easily than JavaScript when it comes to setting access on properties and setting up a constructor. You can use ``public``, ``private``, and ``readonly``, all of which are pretty self-explanatory.
+   - Here's an example on setting access for properties.
+      ```
+      class Invoice {
+         private client: string;
+         readonly detail: string;
+         public amount: number;
+
+         constructor (c: string, d: string, a: number) {
+            this.client = c;
+            this.detail = d;
+            this.amount = a;
+         };
+
+         format() {
+            return `${this.client} owes ${this.amount} for ${this.detail}`;
+         }
+      };
+      ```
+   - The above can be simplified by defining it in the constructor as follows.
+      ```
+      class Invoice {
+         constructor (
+            private client: string,
+            readonly detail: string,
+            public amount: number
+         ){}
+
+         format() {
+            return `${this.client} owes ${this.amount} for ${this.detail}`;
+         }
+      };
+      ```
