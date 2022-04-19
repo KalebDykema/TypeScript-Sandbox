@@ -38,6 +38,8 @@ Watch and compile all files on save with ``tsc -w``, as long as you have a src f
       // Objects with a specified strucutre
       const people: {name: string, age: number, isFamous: boolean}[] = [];
       ```
+- ``void``
+   - **NOTE**: Only used to specify the last of a return on a function.
 - ``any``
    -**NOTE**: This is better for testing than anything else. If you're using this in production code, you might as well being using JavaScript instead.
 
@@ -63,12 +65,12 @@ Watch and compile all files on save with ``tsc -w``, as long as you have a src f
 - Functions
    - You can specify the types of the arguments and the returned value.
       ```
-      const circ = (diameter: number) => {
+      const circ = (diameter: number): number => {
          return diameter * Number.PI;
       };
 
       // Can also specifiy an optional argument with a questions mark
-      const sayHello = (name?: string) => {
+      const sayHello = (name?: string): void => {
          if (name) {
             console.log(`Hello ${name}!`);
          }
