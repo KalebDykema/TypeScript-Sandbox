@@ -1,7 +1,7 @@
 var person = "Kaleb";
-console.log(person);
-var inputs = document.querySelectorAll("input");
-console.log(inputs);
-inputs.forEach(function (input) {
-    console.log(input);
-});
+var age = 23;
+var hasRedHair = true;
+var circ = function (diameter) {
+    return diameter * Math.PI;
+};
+console.log(circ(7.5));

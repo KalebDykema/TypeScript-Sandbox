@@ -1,11 +1,9 @@
 const person = "Kaleb";
+const age = 23;
+const hasRedHair = true;
 
-console.log(person);
+const circ = (diameter: number) => {
+   return diameter * Math.PI;
+}
 
-const inputs = document.querySelectorAll("input");
-
-console.log(inputs);
-
-inputs.forEach((input) => {
-   console.log(input);
-});
+console.log(circ(7.5));
