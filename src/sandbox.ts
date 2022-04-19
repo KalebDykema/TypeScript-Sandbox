@@ -1,26 +1,4 @@
-// Classes
-class Invoice {
-   // private client: string;
-   // readonly detail: string;
-   // public amount: number;
-
-   // constructor (c: string, d: string, a: number) {
-   //    this.client = c;
-   //    this.detail = d;
-   //    this.amount = a;
-   // };
-
-   // Typescript makes doing what we did above way easier.
-   constructor (
-      private client: string,
-      readonly detail: string,
-      public amount: number
-   ){}
-
-   format() {
-      return `${this.client} owes ${this.amount} for ${this.detail}`;
-   }
-};
+import { Invoice } from "./classes/Invoice.js";
 
 const invOne = new Invoice("Kaleb", "pizza", 10);
 const invTwo = new Invoice("Crowe", "chicken", 5);
