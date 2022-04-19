@@ -1,4 +1,20 @@
 "use strict";
+// Classes
+var Invoice = /** @class */ (function () {
+    function Invoice(c, d, a) {
+        this.client = c;
+        this.detail = d;
+        this.amount = a;
+    }
+    ;
+    Invoice.prototype.format = function () {
+        return this.client + " owes " + this.amount + " for " + this.detail;
+    };
+    return Invoice;
+}());
+;
+var invOne = new Invoice("Kaleb", "pizza", 10);
+console.log(invOne.format());
 // Form Selector
 var form = document.querySelector(".new-item-form");
 // Input Selectors

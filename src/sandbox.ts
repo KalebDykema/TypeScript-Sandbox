@@ -1,3 +1,23 @@
+// Classes
+class Invoice {
+   client: string;
+   detail: string;
+   amount: number;
+
+   constructor (c: string, d: string, a: number) {
+      this.client = c;
+      this.detail = d;
+      this.amount = a;
+   };
+
+   format() {
+      return `${this.client} owes ${this.amount} for ${this.detail}`;
+   }
+};
+
+const invOne = new Invoice("Kaleb", "pizza", 10);
+console.log(invOne.format());
+
 // Form Selector
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 
