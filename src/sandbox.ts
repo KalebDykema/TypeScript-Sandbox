@@ -1,13 +1,8 @@
-const person = "Kaleb";
-const age = 23;
-const hasRedHair = true;
+// Form Selector
+const form = document.querySelector(".new-item-form") as HTMLFormElement;
 
-const anchor = document.querySelector("a");
-
-const circ = (diameter: number) => {
-   return diameter * Math.PI;
-}
-
-let add: (a: number, b: number) => number;
-
-console.log(circ(7.5));
+// Input Selectors
+const type = document.querySelector("#type") as HTMLSelectElement;
+const tofrom = document.querySelector("#tofrom") as HTMLInputElement;
+const details = document.querySelector("#details") as HTMLInputElement;
+const amount = document.querySelector("#amount") as HTMLInputElement;
