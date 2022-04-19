@@ -65,6 +65,15 @@ You can save a type or group of types on an alias for later reference. For examp
    myVar = "test";
    ```
 
+## Function Signatures
+You can specify all the argument types and return type of a function before actually creating it. For example:
+   ```
+   let substract: (a: number, b, number) => number;
+   substract = (numOne, numTwo) => {
+      return numOne - numtwo;
+   };
+   ```
+
 ## Setting A Type
 - Variables
    - This is rather simple.
