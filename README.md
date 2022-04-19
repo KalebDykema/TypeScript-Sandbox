@@ -85,6 +85,14 @@ Watch and compile all files on save with ``tsc -w``, as long as you have a src f
       function addNums (a: number, b: number, c?: number) {
       ...
       ```
+- ``!``
+   - The bang operator is used to mark a variable as not null when there's a chance it could be. This is primarialy useful for DOM manipulation.
+      ```
+      const anchor = document.querySelector("a")!;
+
+      // TypeScript would normally yell at us about this potentially being null, but the bang operator up above stops that from happening.
+      console.log(anchor.href);
+      ```
 
 ## Aliases
 You can save a type or group of types on an alias for later reference. For example:
