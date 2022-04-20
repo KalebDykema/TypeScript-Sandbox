@@ -2,8 +2,25 @@ import { Invoice } from "./classes/Invoice.js";
 const invOne = new Invoice("Kaleb", "pizza", 10);
 const invTwo = new Invoice("Crowe", "chicken", 5);
 const invoices = [invOne, invTwo];
-console.log(invOne.format());
-console.log(invTwo.format());
+invoices.forEach(inv => {
+    console.log(inv.client, inv.format());
+});
+;
+const me = {
+    name: "Kaleb",
+    age: 23,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log("I spent", amount);
+        return amount;
+    }
+};
+const greetPerson = (person) => {
+    console.log("Hello", person.name);
+};
+greetPerson(me);
 // Form Selector
 const form = document.querySelector(".new-item-form");
 // Input Selectors

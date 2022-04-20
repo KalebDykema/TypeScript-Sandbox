@@ -2,10 +2,36 @@ import { Invoice } from "./classes/Invoice.js";
 
 const invOne = new Invoice("Kaleb", "pizza", 10);
 const invTwo = new Invoice("Crowe", "chicken", 5);
-const invoices: Invoice[] = [invOne, invTwo];
 
-console.log(invOne.format());
-console.log(invTwo.format());
+const invoices: Invoice[] = [invOne, invTwo];
+invoices.forEach(inv => {
+   console.log(inv.client, inv.format());
+})
+
+interface IsPerson {
+   name: string;
+   age: number;
+   speak(a: string): void;
+   spend(a: number): number;
+};
+
+const me: IsPerson = {
+   name: "Kaleb",
+   age: 23,
+   speak (text) {
+      console.log(text);
+   },
+   spend (amount) {
+      console.log("I spent", amount);
+      return amount;
+   }
+}
+
+const greetPerson = (person: IsPerson) => {
+   console.log("Hello", person.name);
+}
+
+greetPerson(me);
 
 // Form Selector
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
