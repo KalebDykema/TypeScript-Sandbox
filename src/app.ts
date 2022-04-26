@@ -1,4 +1,6 @@
 import { Invoice } from "./classes/Invoice.js";
+import { Payment } from "./classes/Payments.js";
+import { HasFormatter } from "./classes/HasFormatters.js";
 
 const invOne = new Invoice("Kaleb", "pizza", 10);
 const invTwo = new Invoice("Crowe", "chicken", 5);

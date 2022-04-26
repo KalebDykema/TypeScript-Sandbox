@@ -159,3 +159,24 @@ Classes in TypeScript can be handled much more easily than JavaScript when it co
          }
       };
       ```
+
+## Interfaces
+Interfaces are similar to classes. For commonly, it's used to ensure that a class or multiple classes have the certain values. However, it can have more than that as well. For example
+   ```
+   interface HasFormatter {
+      format(): string;
+   }
+
+   // This must have the format() function and it must return a string. However, it can have more.
+   class Invoice implements Formatter {
+      constructor (
+         private client: string,
+         readonly detail: string,
+         public amount: number
+      ){}
+
+      format() {
+         return `${this.client} owes ${this.amount} for ${this.detail}`;
+      }
+   };
+   ```
