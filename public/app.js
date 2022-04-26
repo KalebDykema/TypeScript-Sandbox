@@ -1,10 +1,3 @@
-import { Invoice } from "./classes/Invoice.js";
-const invOne = new Invoice("Kaleb", "pizza", 10);
-const invTwo = new Invoice("Crowe", "chicken", 5);
-const invoices = [invOne, invTwo];
-invoices.forEach(inv => {
-    console.log(inv.client, inv.format());
-});
 ;
 const me = {
     name: "Kaleb",
@@ -36,3 +29,4 @@ form.addEventListener("submit", (e) => {
     console.log(details.value);
     console.log(amount.valueAsNumber);
 });
+export {};

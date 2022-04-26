@@ -1,14 +1,26 @@
 import { Invoice } from "./classes/Invoice.js";
 import { Payment } from "./classes/Payments.js";
-import { HasFormatter } from "./classes/HasFormatters.js";
+import { HasFormatter } from "./interfaces/HasFormatter.js";
 
-const invOne = new Invoice("Kaleb", "pizza", 10);
-const invTwo = new Invoice("Crowe", "chicken", 5);
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter;
 
-const invoices: Invoice[] = [invOne, invTwo];
-invoices.forEach(inv => {
-   console.log(inv.client, inv.format());
-})
+// docOne = new Invoice("Bill", "database set-up", 1000);
+// docTwo = new Payment("Theresa", "house cleaning", 1000);
+
+// const docs: HasFormatter[] = [];
+// docs.push(docOne);
+// docs.push(docTwo);
+
+// console.log(docs);
+
+// const invOne = new Invoice("Kaleb", "pizza", 10);
+// const invTwo = new Invoice("Crowe", "chicken", 5);
+
+// const invoices: Invoice[] = [invOne, invTwo];
+// invoices.forEach(inv => {
+//    console.log(inv.client, inv.format());
+// })
 
 interface IsPerson {
    name: string;
