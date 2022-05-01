@@ -34,12 +34,10 @@ form.addEventListener("submit", (e) => {
 
 // Generics: <T> captures whatever item we pass into the function and the properties on it so the "type" is valid.
 
-// This only accepts any type essentially
+// // This only accepts any type essentially
 // const addUID = <T> (obj: T) => {
-
-// This accepts any object
+// // This accepts any object
 // const addUID = <T extends object> (obj: T) => {
-
 // This accepts an object as long as it has a name property on it
 const addUID = <T extends { name: string }> (obj: T) => {
    const uid = Math.floor(Math.random() * 100);
@@ -49,11 +47,10 @@ const addUID = <T extends { name: string }> (obj: T) => {
 const docOne = addUID({ name: "Kaleb", age: 23 });
 
 // This won't work as long as we extend object on the generic
-// const docTwo = addUID("Test");
+const docTwo = addUID("Test");
 
 // Without a generic up above, it would say that "age" and "name" do not exist.
 console.log(docOne.age);
-
 
 // Generics are very useful with interfaces
 interface Resource<T> {
@@ -62,14 +59,23 @@ interface Resource<T> {
    data: T
 };
 
-const docThree: Resource<object> = {
+const docThree: Resource<string> = {
    uid: 1,
    resourceName: "test",
+   data: "Kaleb"
+};
+
+const docFour: Resource<string[]> = {
+   uid: 2,
+   resourceName: "foo",
+   data: ["Kaleb", "Crowe"]
+}
+
+const docFive: Resource<{name: string, age: number}> = {
+   uid: 2,
+   resourceName: "foo",
    data: {
       name: "Kaleb",
       age: 23
    }
-};
-
-// Without a generic up above
-console.log(docThree.data.age);
+}

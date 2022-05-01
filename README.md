@@ -180,3 +180,58 @@ Interfaces are similar to classes. For commonly, it's used to ensure that a clas
       }
    };
    ```
+
+## Generics
+Generics are used to denote a type that can be different, but you still want to be defined as a tpye and not `any`. A generic captures whatever item we pass into the an instansiation and the properties on it so the "type" is valid.
+   - Here's an example with a function.
+      ```
+      // <T> captures whatever item we pass into the function and the properties on it so the "type" is valid.
+
+      // This only accepts any type essentially
+      const addUID = <T> (obj: T) => {
+      // This accepts any object
+      const addUID = <T extends object> (obj: T) => {
+      // This accepts an object as long as it has a name property on it
+      const addUID = <T extends { name: string }> (obj: T) => {
+         const uid = Math.floor(Math.random() * 100);
+         return { ...obj, uid };
+      }
+
+      const docOne = addUID({ name: "Kaleb", age: 23 });
+
+      // This won't work as long as we extend object on the generic
+      const docTwo = addUID("Test");
+
+      // Without a generic up above, it would say that "age" and "name" do not exist.
+      console.log(docOne.age);
+      ```
+   - Here's an example with an interface.
+      ```
+      // Generics are very useful with interfaces
+      interface Resource<T> {
+         uid: number,
+         resourceName: string,
+         data: T
+      };
+
+      const docThree: Resource<string> = {
+         uid: 1,
+         resourceName: "test",
+         data: "Kaleb"
+      };
+
+      const docFour: Resource<string[]> = {
+         uid: 2,
+         resourceName: "foo",
+         data: ["Kaleb", "Crowe"]
+      }
+
+      const docFive: Resource<{name: string, age: number}> = {
+         uid: 2,
+         resourceName: "foo",
+         data: {
+            name: "Kaleb",
+            age: 23
+         }
+      }
+      ```
