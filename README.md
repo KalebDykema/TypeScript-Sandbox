@@ -235,3 +235,72 @@ Generics are used to denote a type that can be different, but you still want to 
          }
       }
       ```
+
+## Enums
+Enums allow a developer to define a set of named constants. Using enums can make it easier to document intent, or create a set of distinct cases. TypeScript provides both numeric and string-based enums. These will be tracked as numberes/indexes. For example:
+   ```
+   enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
+
+   interface Resource<T> {
+      uid: number,
+      resourceType: ResourceType,
+      data: T
+   }
+
+   const docOne: Resource<{ name: string, age: number }> = {
+      uid: 1,
+      resourceType: ResourceType.AUTHOR,
+      data: {
+         name: "Kaleb",
+         age: 23
+      }
+   };
+
+   const docTwo: Resource<{ name: string, age: number }> = {
+      uid: 2,
+      resourceType: ResourceType.DIRECTOR,
+      data: {
+         name: "Crowe",
+         age: 22
+      }
+   };
+
+   // When logging these, the resourceTypes will be numbers, not AUTHOR or DIRECTOR
+   console.log(docOne, docTwo);
+   ```
+
+## Tuples
+A tuple is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
+   - An example showing tuples vs. a normal array.
+      ```
+      // Normally, you can just change the types of each thing within an array as you wish
+      let arr = ["kaleb", 23, true];
+      arr[0] = 5;
+      arr[1] = false;
+      arr[2] = "Crowe";
+      arr = [true, "string here", 85];
+
+      // These types defined below are fixed.
+      let tup: [string, number, boolean] = ["Kaleb", 23, true]
+
+      // None of this works.
+      tup[0] = 5;
+      tup[1] = false;
+      tup[2] = "Crowe";
+      tup = [true, "string here", 85];
+      ```
+   - A practical example.
+      ```
+      let values: [string, string, number] = [tofrom.value, details.value, amount.valueAsNumber];
+
+      let doc: HasFormatter;
+
+      if (type.value === "Invoice") {
+         // Without defining values as a tuple up above, this would not work.
+         doc = new Invoice(...values);
+      }
+      else {
+         // Without defining values as a tuple up above, this would not work.
+         doc = new Payment(...values);
+      }
+      ```
