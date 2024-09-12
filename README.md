@@ -1,13 +1,6 @@
 # TypeScript Sandbox
 
-## Compilation
-First, globally install the TypeScript compiler with ``npm i -g typescript``.
-
-Compile once with ``tsc sandbox.ts``.
-
-Watch a file and compile on save with ``tsc sandbox.ts -w``.
-
-Watch and compile all files on save with ``tsc -w``, as long as you have a src folder specified in ``tsconfig.json``.
+After installing third party dependencies via `npm run install,` run this project with the command `npm run dev` and view it in the browser at the address printed in your terminal.
 
 ## Setting A Type
 **NOTE**: You can implicity set types by setting a variable equal to a value of the type you wish it to be. For example, ``const myString = "test";`` is a string. This also applies to function return types.
